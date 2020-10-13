@@ -53,9 +53,6 @@
 		"svelte-preprocess": "4.5.1",
 		"tailwindcss": "1.8.12"
 	},
-	"engines": {
-		"node": "8"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Lukem121/paper-pigeon.git"
