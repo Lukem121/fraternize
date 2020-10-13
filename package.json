@@ -1,5 +1,5 @@
 {
-	"name": "TODO",
+	"name": "fraternize",
 	"version": "0.0.1",
 	"description": "TODO",
 	"scripts": {
@@ -55,5 +55,23 @@
 	},
 	"engines": {
 		"node": "8"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Lukem121/paper-pigeon.git"
+	},
+	"keywords": [
+		"meetup",
+		"friends",
+		"group",
+		"meet",
+		"new",
+		"people"
+	],
+	"author": "Lukem121",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Lukem121/paper-pigeon/issues"
+	},
+	"homepage": "https://github.com/Lukem121/paper-pigeon#readme"
 }
