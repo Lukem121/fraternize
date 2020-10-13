@@ -8,7 +8,7 @@
 		"deploy:functions": "firebase deploy --only functions",
 		"deploy:hosting": "firebase deploy --only hosting",
 		"dev": "sapper dev",
-		"export": "cross-env NODE_ENV=production sapper export --legacy",
+		"export": "sapper export",
 		"fb_start": "npm run shell",
 		"logs": "firebase functions:log",
 		"serve": "firebase emulators:start --only functions",
