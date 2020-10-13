@@ -3,7 +3,7 @@
 
     const handleBackClick = () => {
         window.history.back()
-    } 
+    }
 
 </script>
 
@@ -24,7 +24,7 @@
         <p class="text-offwhite text-sm font-bold ml-2 mt-1">Back</p>
     </div>
     
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center mt-16">
         
         <!-- Hand SVG -->
         <div class="flex justify-end w-10/12 mt-3">
@@ -47,7 +47,7 @@
         <!-- Info -->
         <div class="flex justify-start w-10/12">
             <div class="">
-                <h2 class="text-offwhite text-xl font-extrabold" >Sign up</h2>
+                <h2 class="text-offwhite text-xl font-extrabold" >Login</h2>
                 <p class="text-offwhite text-xs font-bold">By continuing, you agree to our <br> <a href="/" class="text-rashekgreen">User Agreement</a> and <a href="/" class="text-rashekgreen">Privacy Policy</a></p>
             </div>
         </div>
@@ -58,27 +58,15 @@
         </div>
         <input name="username" class="py-3 px-5 rounded-lg" type="text">
         
-        <!-- Email -->
-        <div class="flex justify-start w-10/12 mt-2">
-            <label class="text-offwhite text-xl font-bold" for="email">Email</label>
-        </div>
-        <input name="email" class="py-3 px-5 rounded-lg" type="text">
-        
         <!-- Password -->
         <div class="flex justify-start w-10/12 mt-2">
             <label class="text-offwhite text-xl font-bold" for="password">Password</label>
         </div>
         <input name="password" class="py-3 px-5 rounded-lg" type="text">
-        
-        <!-- Confirm Password -->
-        <div class="flex justify-start w-10/12 mt-2">
-            <label class="text-offwhite text-xl font-bold" for="confirm-password">Confirm Password</label>
-        </div>
-        <input name="confirm-password" class="py-3 px-5 rounded-lg" type="text">
 
         <!-- Action button -->
         <button class="bg-rashekgreen mt-6 text-xl font-bold py-2 px-6 rounded-lg w-10/12">
-            Next
+            Login
         </button>
         <div class="flex justify-start w-10/12 mt-2">
             <a class="text-rashekgreen text-xs font-bold" href="/">Already have an account?</a>

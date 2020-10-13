@@ -1,5 +1,5 @@
 <script>
-    import { fly } from 'svelte/transition'; 
+    import { fade, fly } from 'svelte/transition'; 
 </script>
 
 <style>
@@ -9,7 +9,7 @@
 	<title>Fraternize</title>
 </svelte:head>
 
-<div class="h-screen relative" in:fly="{{ x: 300, duration: 500, delay: 300}}" out:fly="{{ x:300, duration:300 }}">		
+<div class="h-screen relative" in:fly|fade="{{ x: -300, duration: 500, delay: 300}}" out:fly|fade="{{ x:-300, duration:300 }}">		
 	<div class="h-full bg-left bg-cover" style="background-image: url(people.jpg);">
 		<div class="flex flex-col items-center justify-center h-full">
 			<svg class="w-56 -mb-6 pl-4 " viewBox="0 0 557 571" fill="none" xmlns="http://www.w3.org/2000/svg">
