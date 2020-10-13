@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "TODO",
 	"scripts": {
-		"build": "cross-env NODE_ENV=production sapper build --legacy",
+		"build": "sapper build",
 		"deploy": "firebase deploy",
 		"deploy:functions": "firebase deploy --only functions",
 		"deploy:hosting": "firebase deploy --only hosting",
@@ -15,9 +15,6 @@
 		"shell": "firebase functions:shell",
 		"start": "node __sapper__/build"
 	},
-	"browserslist": [
-		"last 3 version"
-	],
 	"dependencies": {
 		"compression": "1.7.4",
 		"express": "4.17.1",
