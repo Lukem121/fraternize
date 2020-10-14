@@ -1,0 +1,1 @@
+<h1 class="text-xl text-offwhite">Favorites</h1>

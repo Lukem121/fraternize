@@ -7,9 +7,18 @@
         eventTime: "5:00 PM",
         category: "Default category",
         locationName: "Default Location",
-        peopleGoing: "1",
+        peopleGoing: 1,
+        maxPeople: 10,
         price: "FREE"
     };    
+
+    let showSpotsLeft = false;
+
+    if(event.maxPeople > 0){
+        if(event.maxPeople - event.peopleGoing < Math.floor((event.maxPeople * 0.1) + 5)){
+            showSpotsLeft = true;
+        }
+    }
     
 </script>
 
@@ -32,7 +41,7 @@
 
             <!-- People attending and price -->
             <div class="flex items-center justify-between">
-                <span class="text-gray-700">{event.peopleGoing} going <span class="text-black">-</span> <span class="text-red-600">3 spots left!</span></span>
+                <span class="text-gray-700">{event.peopleGoing} going {#if showSpotsLeft}<span class="text-black">-</span> <span class="text-red-600">{ event.maxPeople - event.peopleGoing} spots left!</span>{/if}</span>
                 <p class="bg-rashekgreen block text-center text-rashekblack font-bold px-3 py-1 rounded-lg mb-2">{event.price}</p>
             </div>
         </div>
