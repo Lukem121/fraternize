@@ -1,5 +1,7 @@
 <script>
-    import { fade, fly } from 'svelte/transition'; 
+	import { fade, fly } from 'svelte/transition'; 
+    import Button from '../components/Button.svelte';
+	
 </script>
 
 <style>
@@ -28,7 +30,8 @@
 			</svg>
 			<img class="w-11/12" src="./FraternizeMeetupLogoText.png" alt="">
 			<a href="/signup" class="bg-rashekgreen mt-5 text-center text-xl font-bold py-2 px-6 rounded-lg w-10/12">Sign up</a>
-			<a href="/login" class="bg-white mt-3 mb-24 text-xl text-center font-bold py-2 px-6 rounded-lg w-10/12">Login</a>
+			<a href="/login" class="bg-white mt-3 text-xl text-center font-bold py-2 px-6 rounded-lg w-10/12">Login</a>
+			<a href="/events" class="mb-24 mt-1">continue as guest</a>
 		</div>
 	</div>
 </div>
