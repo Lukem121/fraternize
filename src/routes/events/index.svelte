@@ -52,7 +52,7 @@
             eventTime: "5:00 PM",
             category: "Default category",
             locationName: "Default Location",
-            peopleGoing: 1,
+            peopleGoing: 7,
             maxPeople: 15,
             price: "FREE"
         },
