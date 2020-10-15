@@ -41,7 +41,7 @@
 
             <!-- People attending and price -->
             <div class="flex items-center justify-between">
-                <span class="text-gray-700">{event.peopleGoing} going {#if showSpotsLeft}<span class="text-black">-</span> <span class="text-red-600">{ event.maxPeople - event.peopleGoing} spots left!</span>{/if}</span>
+                <span class="text-gray-700">{event.peopleGoing} going {#if showSpotsLeft}<span class="text-black">-</span> <span class="text-red-600">{ event.maxPeople - event.peopleGoing} { ((event.maxPeople - event.peopleGoing) < 2) ? 'space' : 'spaces' } left!</span>{/if}</span>
                 <p class="bg-rashekgreen block text-center text-rashekblack font-bold px-3 py-1 rounded-lg mb-2">{event.price}</p>
             </div>
         </div>

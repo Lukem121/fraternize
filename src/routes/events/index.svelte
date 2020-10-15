@@ -8,7 +8,7 @@
             eventTime: "5:00 PM",
             category: "Default category",
             locationName: "Default Location",
-            peopleGoing: 6,
+            peopleGoing: 40,
             maxPeople: 42,
             price: "£1.99"
         },
@@ -19,7 +19,7 @@
             eventTime: "5:00 PM",
             category: "Default category",
             locationName: "Default Location",
-            peopleGoing: 11,
+            peopleGoing: 14,
             maxPeople: 15,
             price: "FREE"
         },
