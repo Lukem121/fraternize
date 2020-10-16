@@ -5,7 +5,7 @@
     
 </script>
 
-<a href="{href}" class="button" role="button" style="{css}">{value}</a>
+<a on:click href="{href}" class="button" role="button" style="{css}">{value}</a>
 
 <style>
     .button {

@@ -1,5 +1,24 @@
+<script context="module">
+    import { goto } from '@sapper/app';
+
+	export async function preload(page, session) {
+		let { user } = session;
+		if (!user) {
+		    return this.redirect(302, '/login');
+		}
+    }
+    
+    async function logout() {
+        return firebase.auth().signOut().then(() => {
+            goto('/login');
+        });
+    }
+
+</script>
+
 <script>
     import EventCard from '../../components/EventCard.svelte';
+    
     let events = [
         {
             imgURL: "https://source.unsplash.com/random/600x400",
@@ -72,6 +91,7 @@
 </script>
 
 <div class="relative mb-20">
+    <button on:click={logout}>Logout</button>
     {#each events as event, i}
 	<EventCard {event} />
     {/each}

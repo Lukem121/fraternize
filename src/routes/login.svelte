@@ -1,11 +1,40 @@
 <script>
     import { fly } from "svelte/transition";
+    import { goto } from '@sapper/app';
+
     import Button from '../components/Button.svelte';
     import Input from '../components/Input.svelte';
 
     const handleBackClick = () => {
         window.history.back();
     };
+
+    let email = '';
+    let password = '';
+
+    async function login() {
+        try {
+            firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
+                goto('/events');
+            });
+        } catch(e) {
+            let message = e.message || e;
+            console.log("Something went wrong:", message);
+        }
+    }
+
+    async function signInWithGoogle() {
+        try {
+            let provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then((res) => {
+                goto('/events');
+            });
+        } catch(e) {
+            let message = e.message || e;
+            console.log("Something went wrong:", message);
+        }
+    }
+
 </script>
 
 <style>
@@ -52,13 +81,13 @@
     <Input labelValue="Password" />
 
     <!-- Action button -->
-    <Button value={"Next"} css={"margin-bottom: 0;"}/>
+    <Button on:click={login} value={"Next"} css={"margin-bottom: 0;"}/>
 
     <!-- Create an account text-->
-    <a class="text-rashekgreen text-xs font-bold" href="/">Don't have an account?</a>
+    <a class="text-rashekgreen text-xs font-bold" href="/signup">Don't have an account?</a>
 
     <p class="text-white text-lg font-bold mt-1 text-center">or</p>
 
     <!-- Sign in with Google -->
-    <img class="mt-3 cursor-pointer m-auto" src="./btn_google.png" alt="">
+    <img on:click={signInWithGoogle} class="mt-3 cursor-pointer m-auto" src="./btn_google.png" alt="">
 </div>

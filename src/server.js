@@ -12,9 +12,21 @@ const main =
 const local = dev || main;
 
 const expressServer = express().use(
+	cookieParser(),
 	compression({ threshold: 0 }),
 	sirv("static", { dev }),
-	sapper.middleware()
+	sapper.middleware({
+		session: async (req, res) => {
+			if (req.cookies.token) {
+				return {
+					user: req.cookies.token
+				};
+			}
+			return {
+				user: false
+			};
+		}
+	})
 );
 
 if (local) {
