@@ -1,13 +1,13 @@
 <script>
     export let labelValue = "undefined";
     export let inputPlaceholder = undefined;
-    export let inputType = "text";
+    export let value;
 </script>
 
 
 <div class="my-1">
     <p class="label">{labelValue}</p>
-    <input name={labelValue} class="input" type={inputType} placeholder={inputPlaceholder} />
+    <input bind:value={value} name={labelValue} class="input" placeholder={inputPlaceholder} />
 </div>
 
 <style>

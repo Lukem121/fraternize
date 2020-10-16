@@ -1,17 +1,10 @@
 <script>
+    import { stores } from '@sapper/app';
     import EventCard from '../../components/EventCard.svelte';
+
+	const { session } = stores();
+
     let events = [
-        {
-            imgURL: "https://source.unsplash.com/random/600x400",
-            imgAlt: "Location image",
-            title: "Chat and a walk",
-            eventTime: "5:00 PM",
-            category: "Default category",
-            locationName: "Default Location",
-            peopleGoing: 40,
-            maxPeople: 42,
-            price: "£1.99"
-        },
         {
             imgURL: "/eventImages/people1.jpg",
             imgAlt: "Location image",
@@ -30,9 +23,9 @@
             eventTime: "5:00 PM",
             category: "Default category",
             locationName: "Default Location",
-            peopleGoing: 1,
-            maxPeople: 15,
-            price: "FREE"
+            peopleGoing: 34,
+            maxPeople: 40,
+            price: "£6.99"
         },
         {
             imgURL: "/eventImages/test1.jpg",
@@ -69,6 +62,15 @@
         }
         
     ]
+</script>
+
+<!-- Add this module to page to ensure that the user is logged in -->
+<script context="module">
+	export async function preload(page, session) {
+        	let { user } = session;
+        	if (!user) return this.redirect(302, '/login');
+       		return {user}
+	}
 </script>
 
 <div class="relative mb-20">

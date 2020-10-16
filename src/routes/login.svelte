@@ -3,13 +3,28 @@
     import Button from '../components/Button.svelte';
     import Input from '../components/Input.svelte';
 
+    let email = '';
+    let password = '';
+
+    async function login() {
+        const loginCheck = await fetch('/session', {
+            method: 'POST',
+            credentials: 'same-origin',
+            body: JSON.stringify({ email, password }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const { success } = await loginCheck.json();
+        if (success) {
+            window.location.href = 'events';
+        }
+    }
+
     const handleBackClick = () => {
         window.history.back();
     };
 </script>
-
-<style>
-</style>
 
 <div
     class="bg-rashekblack relative max-w-4xl p-8"
@@ -45,14 +60,14 @@
         <p class="text-offwhite text-xs font-bold">By continuing, you agree to our <br> <a href="/" class="text-rashekgreen">User Agreement</a> and <a href="/" class="text-rashekgreen">Privacy Policy</a></p>
     </div>
 
-    <!-- Username -->
-    <Input labelValue="Username" />
+    <!-- Email -->
+    <Input labelValue="Email" bind:value={email}/>
 
     <!-- Password -->
-    <Input labelValue="Password" />
+    <Input labelValue="Password" bind:value={password}/>
 
     <!-- Action button -->
-    <Button value={"Next"} css={"margin-bottom: 0;"}/>
+    <Button on:click={login} value={"Next"} css={"margin-bottom: 0;"}/>
 
     <!-- Create an account text-->
     <a class="text-rashekgreen text-xs font-bold" href="/">Don't have an account?</a>

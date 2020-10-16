@@ -1,11 +1,11 @@
 <script>
-    export let href = "/";
+    export let href = "/#";
     export let value;
     export let css;
     
 </script>
 
-<a href="{href}" class="button" role="button" style="{css}">{value}</a>
+<a on:click href="{href}" class="button" role="button" style="{css}">{value}</a>
 
 <style>
     .button {

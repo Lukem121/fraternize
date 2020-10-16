@@ -1,11 +1,15 @@
 <script>
-	import { fade, fly } from 'svelte/transition'; 
-    import Button from '../components/Button.svelte';
-	
+	import { fly } from 'svelte/transition'; 
 </script>
 
-<style>
-</style>
+<!-- Add this module to page to ensure that the user is logged in -->
+<script context="module">
+	export async function preload(page, session) {
+        	let { user } = session;
+        	if (user) return this.redirect(302, '/events');
+       		return {user}
+	}
+</script>
 
 <svelte:head>
 	<title>Fraternize</title>
