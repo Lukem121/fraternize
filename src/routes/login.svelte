@@ -1,12 +1,15 @@
 <script>
     import { fly } from "svelte/transition";
+    import { goto } from '@sapper/app';
     import Button from '../components/Button.svelte';
     import Input from '../components/Input.svelte';
 
     let email = '';
     let password = '';
 
+    let processing;
     async function login() {
+        processing = true;
         const loginCheck = await fetch('/session', {
             method: 'POST',
             credentials: 'same-origin',
@@ -22,7 +25,7 @@
     }
 
     const handleBackClick = () => {
-        window.history.back();
+        goto('/');
     };
 </script>
 
@@ -67,10 +70,10 @@
     <Input labelValue="Password" bind:value={password}/>
 
     <!-- Action button -->
-    <Button on:click={login} value={"Next"} css={"margin-bottom: 0;"}/>
+    <Button on:click={login} processing={processing} value={"Next"} css={"margin-bottom: 0;"}/>
 
     <!-- Create an account text-->
-    <a class="text-rashekgreen text-xs font-bold" href="/">Don't have an account?</a>
+    <a class="text-rashekgreen text-xs font-bold" href="/signup">Don't have an account?</a>
 
     <p class="text-white text-lg font-bold mt-1 text-center">or</p>
 

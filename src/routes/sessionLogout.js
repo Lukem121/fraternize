@@ -9,6 +9,7 @@ export async function post(req, res, next) {
 			.verifySessionCookie(sessionCookie)
 			.then((decodedClaims) => {
 				firebaseAdmin.auth().revokeRefreshTokens(decodedClaims.sub);
+				console.log("Logged out");
 				res.end(JSON.stringify({ success: true }));
 			})
 			.catch((error) => {

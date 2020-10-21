@@ -1,5 +1,4 @@
-<script>
-    
+<script>    
     export let event = {
         imgURL: "/people1.jpg",
         imgAlt: "Location image",
@@ -9,13 +8,13 @@
         locationName: "Default Location",
         peopleGoing: 1,
         maxPeople: 10,
-        remainingSpaces: (maxPeople - peopleGoing),
         price: "FREE"
     };    
 
+    let remainingSpaces = event.maxPeople - event.peopleGoing;
     let showSpotsLeft = false;
     if(event.maxPeople > 0){
-        if(event.remainingSpaces < Math.floor((event.maxPeople * 0.1) + 5)){
+        if(remainingSpaces < Math.floor((event.maxPeople * 0.1) + 5)){
             showSpotsLeft = true;
         }
     }
@@ -45,7 +44,7 @@
                 <span class="text-gray-700">{event.peopleGoing} going</span> 
                 {#if showSpotsLeft}
                     <span class="text-black">-</span> 
-                    <span class="text-red-600">{ event.remainingSpaces } { (event.remainingSpaces < 2) ? 'space' : 'spaces' } left!</span>
+                    <span class="text-red-600">{ remainingSpaces } { (remainingSpaces < 2) ? 'space' : 'spaces' } left!</span>
                 {/if}
                 
                 <p class="card-price">{event.price}</p>

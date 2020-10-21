@@ -15,6 +15,6 @@
         @apply text-offwhite text-xl font-bold;
     }
     .input {
-        @apply h-10 w-full rounded-lg;
+        @apply h-10 px-3 w-full rounded-lg;
     }
 </style>

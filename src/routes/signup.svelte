@@ -1,15 +1,48 @@
 <script>
     import { fly } from "svelte/transition";
+    import { goto } from '@sapper/app';
     import Button from '../components/Button.svelte';
     import Input from '../components/Input.svelte';
 
+    let email = '';
+    let password = '';
+    let displayName = '';
+
+    let processing;
+    async function signup() {
+        processing = true;
+        const signup = await fetch('/signup', {
+            method: 'POST',
+            credentials: 'same-origin',
+            body: JSON.stringify({ email, password, displayName }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const { success } = await signup.json();
+        if (success) {
+
+            const loginCheck = await fetch('/session', {
+                method: 'POST',
+                credentials: 'same-origin',
+                body: JSON.stringify({ email, password }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const { success } = await loginCheck.json();
+            if (success) {
+                window.location.href = 'events';
+            }
+        }
+        
+    }
+
     const handleBackClick = () => {
-        window.history.back();
+        goto('/');
     };
 </script>
 
-<style>
-</style>
 
 <div
     class="bg-rashekblack relative max-w-4xl p-8"
@@ -46,21 +79,21 @@
     </div>
 
     <!-- Username -->
-    <Input labelValue="Username" />
+    <Input labelValue="Username" bind:value={displayName}/>
 
     <!-- Email -->
-    <Input labelValue="Email" />
+    <Input labelValue="Email" bind:value={email}/>
 
     <!-- Password -->
-    <Input labelValue="Password" />
+    <Input labelValue="Password" bind:value={password}/>
 
     <!-- Confirm Password -->
     <Input labelValue="Confirm Password" />
 
     <!-- Action button -->
-    <Button value={"Next"} css={"margin-bottom: 0;"}/>
+    <Button on:click={signup} processing={processing} value={"Next"} css={"margin-bottom: 0;"}/>
 
-    <p><a class="text-rashekgreen text-xs font-bold" href="/">Already have an account?</a></p>
+    <p><a class="text-rashekgreen text-xs font-bold" href="/login">Already have an account?</a></p>
 
     <p class="text-white text-lg font-bold mt-1 text-center">or</p>
 

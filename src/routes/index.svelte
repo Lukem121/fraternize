@@ -5,9 +5,9 @@
 <!-- Add this module to page to ensure that the user is logged in -->
 <script context="module">
 	export async function preload(page, session) {
-        	let { user } = session;
-        	if (user) return this.redirect(302, '/events');
-       		return {user}
+		let { user } = session;
+		if (user) return this.redirect(302, '/events');
+		return {user}
 	}
 </script>
 
@@ -15,7 +15,7 @@
 	<title>Fraternize</title>
 </svelte:head>
 
-<div class="h-screen relative" in:fly|fade="{{ x: -300, duration: 500, delay: 300}}" out:fly|fade="{{ x:-300, duration:300 }}">		
+<div class="h-screen relative" in:fly|fade="{{ x: -300, duration: 500, delay: 300}}" out:fly|fade="{{ x:-300, duration:300 }}">	
 	<div class="h-full bg-left bg-cover" style="background-image: url(people.jpg);">
 		<div class="flex flex-col items-center justify-center h-full">
 			<svg class="w-56 -mb-6 pl-4 " viewBox="0 0 557 571" fill="none" xmlns="http://www.w3.org/2000/svg">

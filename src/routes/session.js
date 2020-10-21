@@ -44,8 +44,8 @@ export async function post(req, res, next) {
 
 		firebaseAdmin.auth().createSessionCookie(idToken, { expiresIn }).then(
 			(sessionCookie) => {
-				// Set secure to true in production
-				const options = { maxAge: expiresIn, httpOnly: true, secure: false };
+				// If errors with cookies set secure to false/true true is for prod
+				const options = { maxAge: expiresIn, httpOnly: true, secure: true };
 				res.cookie('fireCookie', sessionCookie, options);
 				res.end(JSON.stringify({ success: true }));
 			},
